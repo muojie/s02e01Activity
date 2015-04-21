@@ -16,10 +16,48 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.out.println("onCreate");
+
         setContentView(R.layout.activity_main);
         button = (Button)findViewById(R.id.button);
         ButtonListener buttonListener = new ButtonListener();
         button.setOnClickListener(buttonListener);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        System.out.println("onStart");
+    }
+
+    @Override
+    protected  void onResume() {
+        super.onResume();
+        System.out.println("onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        System.out.println("onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        System.out.println("onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        System.out.println("onDestroy");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        System.out.println("onRestart");
     }
 
     class ButtonListener implements View.OnClickListener {
