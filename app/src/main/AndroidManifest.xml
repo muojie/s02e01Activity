@@ -20,6 +20,10 @@
             android:label="secondActivity">
 
             </activity>
+        <activity android:name=".OtherActivity"
+            android:label="OtherActivity">
+
+            </activity>
     </application>
 
 </manifest>
