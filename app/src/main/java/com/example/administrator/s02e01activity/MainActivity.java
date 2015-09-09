@@ -3,6 +3,7 @@ package com.example.administrator.s02e01activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +16,11 @@ public class MainActivity extends ActionBarActivity {
     private Button button;
     private Button button1;
     private Button button2;
+    private Button button3;
+
+    View layoutMain = null;
+    View layout4 = null;
+    boolean firstFlag = true;
 
     private long time = (long) 0.0;
 
@@ -23,7 +29,11 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         System.out.println("onCreate");
 
-        setContentView(R.layout.activity_main);
+        LayoutInflater inflater = this.getLayoutInflater();
+        layoutMain = inflater.inflate(R.layout.activity_main, null);
+        layout4 = inflater.inflate(R.layout.layout4, null);
+
+        setContentView(layoutMain);
         button = (Button)findViewById(R.id.button);
         ButtonListener buttonListener = new ButtonListener();
         button.setOnClickListener(buttonListener);
@@ -72,16 +82,19 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void jump2Second() {
-        setContentView(R.layout.layout4);
+        setContentView(layout4);
         long currTime = System.currentTimeMillis();
         Toast.makeText(MainActivity.this, "切换耗时： " + String.valueOf(currTime - time) + "毫秒",
                 Toast.LENGTH_SHORT).show();
-        Button buttonLayout4 = (Button)findViewById(R.id.button3);
-        buttonLayout4.setOnClickListener(new ButtonListener());
+        if(firstFlag) {
+            button3 = (Button) findViewById(R.id.button3);
+            button3.setOnClickListener(new ButtonListener());
+            firstFlag = false;
+        }
     }
 
     public void jump2Main() {
-        setContentView(R.layout.activity_main);
+        setContentView(layoutMain);
         long currTime = System.currentTimeMillis();
         Toast.makeText(MainActivity.this, "切换耗时： " + String.valueOf(currTime - time) + "毫秒",
                 Toast.LENGTH_SHORT).show();
