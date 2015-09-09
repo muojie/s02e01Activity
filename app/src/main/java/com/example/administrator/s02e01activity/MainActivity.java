@@ -1,5 +1,7 @@
 package com.example.administrator.s02e01activity;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ public class MainActivity extends ActionBarActivity {
     private Button button1;
     private Button button2;
     private Button button3;
+    private Button button4;
 
     View layoutMain = null;
     View layout4 = null;
@@ -43,6 +46,9 @@ public class MainActivity extends ActionBarActivity {
 
         button2 = (Button)findViewById(R.id.button2);
         button2.setOnClickListener(buttonListener);
+
+        button4 = (Button)findViewById(R.id.button4);
+        button4.setOnClickListener(buttonListener);
     }
 
     @Override
@@ -101,6 +107,14 @@ public class MainActivity extends ActionBarActivity {
         //FIXME: need re findViewByID after setContentView, so we should use ViewGroup instead of just setContentView
     }
 
+    public void startFragmentReplace() {
+        Fragment newFragment = new ExampleFragment();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame1, newFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
     class ButtonListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
@@ -129,6 +143,10 @@ public class MainActivity extends ActionBarActivity {
                 }
                 case R.id.button3: {
                     jump2Main();
+                    break;
+                }
+                case R.id.button4: {
+                    startFragmentReplace();
                     break;
                 }
             }
