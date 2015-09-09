@@ -7,11 +7,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
 
     private Button button;
+    private Button button1;
+    private Button button2;
+
+    private long time = (long) 0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +27,12 @@ public class MainActivity extends ActionBarActivity {
         button = (Button)findViewById(R.id.button);
         ButtonListener buttonListener = new ButtonListener();
         button.setOnClickListener(buttonListener);
+
+        button1 = (Button)findViewById(R.id.button1);
+        button1.setOnClickListener(buttonListener);
+
+        button2 = (Button)findViewById(R.id.button2);
+        button2.setOnClickListener(buttonListener);
     }
 
     @Override
@@ -60,15 +71,54 @@ public class MainActivity extends ActionBarActivity {
         System.out.println("onRestart");
     }
 
+    public void jump2Second() {
+        setContentView(R.layout.layout4);
+        long currTime = System.currentTimeMillis();
+        Toast.makeText(MainActivity.this, "切换耗时： " + String.valueOf(currTime - time) + "毫秒",
+                Toast.LENGTH_SHORT).show();
+        Button buttonLayout4 = (Button)findViewById(R.id.button3);
+        buttonLayout4.setOnClickListener(new ButtonListener());
+    }
+
+    public void jump2Main() {
+        setContentView(R.layout.activity_main);
+        long currTime = System.currentTimeMillis();
+        Toast.makeText(MainActivity.this, "切换耗时： " + String.valueOf(currTime - time) + "毫秒",
+                Toast.LENGTH_SHORT).show();
+        //FIXME: need re findViewByID after setContentView, so we should use ViewGroup instead of just setContentView
+    }
+
     class ButtonListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent();
-            //setClass函数的第一个参数是一个Context对象
-            //Context是一个类，Activity是Context类的子类，也就是说，所有的Activity对象，都可以向上转型为Context对象
-            //setClass函数的第二个参数是一个Class对象，在当前场景下，应该传入需要被启动的Activity类的class对象
-            intent.setClass(MainActivity.this, SecondActivity.class);
-            startActivity(intent);
+            time = System.currentTimeMillis();
+            switch (v.getId()) {
+                case R.id.button: {
+                    Intent intent = new Intent();
+                    //setClass函数的第一个参数是一个Context对象
+                    //Context是一个类，Activity是Context类的子类，也就是说，所有的Activity对象，都可以向上转型为Context对象
+                    //setClass函数的第二个参数是一个Class对象，在当前场景下，应该传入需要被启动的Activity类的class对象
+                    intent.setClass(MainActivity.this, SecondActivity.class);
+                    startActivity(intent);
+                    break;
+                }
+                case R.id.button1: {
+                    Intent intent = new Intent();
+                    intent.setClass(MainActivity.this, OtherActivity.class);
+                    intent.putExtra("org.mobile.s02e04.Age", 20);
+                    intent.putExtra("org.mobile.s02e04.time", time);
+                    startActivity(intent);
+                    break;
+                }
+                case R.id.button2: {
+                    jump2Second();
+                    break;
+                }
+                case R.id.button3: {
+                    jump2Main();
+                    break;
+                }
+            }
         }
     }
 
