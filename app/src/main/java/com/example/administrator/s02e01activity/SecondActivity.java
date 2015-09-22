@@ -2,12 +2,14 @@ package com.example.administrator.s02e01activity;
 
 import android.app.Activity;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.administrator.s02e01activity.sqlit.DatabaseContext;
 import com.example.administrator.s02e01activity.sqlit.DatabaseHelper;
 
 import java.io.File;
@@ -33,8 +35,12 @@ public class SecondActivity extends Activity {
         Log.e("test", "photo directory " + mFile);
         mFile.mkdir();
 
-        db = new DatabaseHelper(SecondActivity.this, "test");
-        db.getReadableDatabase();
+        DatabaseContext dbContext = new DatabaseContext(SecondActivity.this);
+        db = new DatabaseHelper(dbContext, "test");
+        SQLiteDatabase database = db.getReadableDatabase();
+        String sql="Create table "+"table2"+"("+"_id"+" integer primary key autoincrement,"
+                +"Tile"+" text );";
+        database.execSQL(sql);
         //myCursor=db.select();
     }
 
