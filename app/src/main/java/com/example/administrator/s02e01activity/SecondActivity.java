@@ -1,18 +1,41 @@
 package com.example.administrator.s02e01activity;
 
 import android.app.Activity;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.administrator.s02e01activity.sqlit.DatabaseHelper;
+
+import java.io.File;
+
 
 public class SecondActivity extends Activity {
+
+    private File mFile;
+    private DatabaseHelper db;
+    private Cursor myCursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         System.out.println("onCreate");
+
+        testDatabase();
+    }
+
+    public void testDatabase() {
+        mFile = Environment.getExternalStoragePublicDirectory("123");
+        Log.e("test", "photo directory " + mFile);
+        mFile.mkdir();
+
+        db = new DatabaseHelper(SecondActivity.this, "test");
+        db.getReadableDatabase();
+        //myCursor=db.select();
     }
 
     @Override
