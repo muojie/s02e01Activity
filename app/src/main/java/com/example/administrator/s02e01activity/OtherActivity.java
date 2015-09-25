@@ -3,13 +3,14 @@ package com.example.administrator.s02e01activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
 /**
  * Created by Administrator on 2015/4/24.
  */
-public class OtherActivity extends Activity {
+public class OtherActivity extends ActionBarActivity {
 
     private TextView textView;
 

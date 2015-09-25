@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,7 +16,7 @@ import com.example.administrator.s02e01activity.sqlit.DatabaseHelper;
 import java.io.File;
 
 
-public class SecondActivity extends Activity {
+public class SecondActivity extends ActionBarActivity {
 
     private File mFile;
     private DatabaseHelper db;

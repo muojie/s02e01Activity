@@ -10,6 +10,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -17,7 +18,7 @@ import android.widget.TextView;
 
 import com.example.administrator.s02e01activity.R;
 
-public class DBTesterActivity extends Activity {
+public class DBTesterActivity extends ActionBarActivity {
 
     protected static final String TABLE_NAME = "table_timestamp";
 
