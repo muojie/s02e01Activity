@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:columnCount="1" >
+
+    <Button
+        android:id="@+id/button_e_add"
+        android:text="Add Timestamp EXT" />
+
+    <Button
+        android:id="@+id/button_e_del"
+        android:text="Delete DB File EXT" />
+
+    <Button
+        android:id="@+id/button_i_add"
+        android:text="Add Timestamp INT" />
+
+    <Button
+        android:id="@+id/button_i_del"
+        android:text="Delete DB File INT" />
+
+    <Button
+        android:id="@+id/button_display"
+        android:text="Display Native Message" />
+
+    <TextView
+        android:id="@+id/text_messages"
+        android:text="Messages appear here." />
+
+</GridLayout>

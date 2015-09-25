@@ -37,11 +37,16 @@ public class SecondActivity extends Activity {
 
         DatabaseContext dbContext = new DatabaseContext(SecondActivity.this);
         db = new DatabaseHelper(dbContext, "test");
+
         SQLiteDatabase database = db.getReadableDatabase();
         String sql="Create table "+"table2"+"("+"_id"+" integer primary key autoincrement,"
                 +"Tile"+" text );";
         database.execSQL(sql);
-        //myCursor=db.select();
+
+        {//test DatabaseHelper class
+            myCursor = db.select();
+            db.insert("Tile test");
+        }
     }
 
     @Override

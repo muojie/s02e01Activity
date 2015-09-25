@@ -27,6 +27,10 @@
             android:label="OtherActivity">
 
             </activity>
+        <activity android:name=".dbtester.DBTesterActivity"
+            android:label="database test">
+
+        </activity>
     </application>
 
 </manifest>

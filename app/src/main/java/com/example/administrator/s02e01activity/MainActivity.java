@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.administrator.s02e01activity.dbtester.DBTesterActivity;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -20,6 +22,8 @@ public class MainActivity extends ActionBarActivity {
     private Button button2;
     private Button button3;
     private Button button4;
+
+    private Button dbButton;
 
     View layoutMain = null;
     View layout4 = null;
@@ -49,6 +53,9 @@ public class MainActivity extends ActionBarActivity {
 
         button4 = (Button)findViewById(R.id.button4);
         button4.setOnClickListener(buttonListener);
+
+        dbButton = (Button)findViewById(R.id.dbButton);
+        dbButton.setOnClickListener(buttonListener);
     }
 
     @Override
@@ -148,6 +155,11 @@ public class MainActivity extends ActionBarActivity {
                 case R.id.button4: {
                     startFragmentReplace();
                     break;
+                }
+                case R.id.dbButton: {
+                    Intent intent = new Intent();
+                    intent.setClass(MainActivity.this, DBTesterActivity.class);
+                    startActivity(intent);
                 }
             }
         }

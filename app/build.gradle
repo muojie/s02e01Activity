@@ -10,6 +10,10 @@ android {
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
+
+        ndk {
+            moduleName "DB_TESTER"
+        }
     }
     buildTypes {
         release {
@@ -17,6 +21,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets { main { jni.srcDirs = ['src/main/jni/'] } }
 }
 
 dependencies {
