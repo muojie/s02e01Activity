@@ -46,6 +46,7 @@ android {
 
     clean.dependsOn cleanNative
 
+    /* configure in Application.mk
     productFlavors {
         arm {
             ndk {
@@ -53,6 +54,7 @@ android {
             }
         }
     }
+    */
 
 }
 
