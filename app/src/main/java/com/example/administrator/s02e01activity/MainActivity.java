@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.administrator.s02e01activity.dbtester.DBTesterActivity;
+import com.example.administrator.s02e01activity.layout.LinerLayoutActivity;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -24,6 +25,7 @@ public class MainActivity extends ActionBarActivity {
     private Button button4;
 
     private Button dbButton;
+    private Button layoutButton;
 
     View layoutMain = null;
     View layout4 = null;
@@ -56,6 +58,9 @@ public class MainActivity extends ActionBarActivity {
 
         dbButton = (Button)findViewById(R.id.dbButton);
         dbButton.setOnClickListener(buttonListener);
+
+        layoutButton = (Button)findViewById(R.id.layoutButton);
+        layoutButton.setOnClickListener(buttonListener);
     }
 
     @Override
@@ -159,6 +164,12 @@ public class MainActivity extends ActionBarActivity {
                 case R.id.dbButton: {
                     Intent intent = new Intent();
                     intent.setClass(MainActivity.this, DBTesterActivity.class);
+                    startActivity(intent);
+                    break;
+                }
+                case R.id.layoutButton: {
+                    Intent intent = new Intent();
+                    intent.setClass(MainActivity.this, LinerLayoutActivity.class);
                     startActivity(intent);
                 }
             }
