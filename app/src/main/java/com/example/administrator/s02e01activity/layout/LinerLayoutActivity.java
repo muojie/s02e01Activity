@@ -1,9 +1,15 @@
 package com.example.administrator.s02e01activity.layout;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v7.app.ActionBarActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.administrator.s02e01activity.R;
 
@@ -14,12 +20,67 @@ import com.example.administrator.s02e01activity.R;
 
 public class LinerLayoutActivity extends ActionBarActivity {
 
+    private final int NEX_PAGE = 2;
+
+    private LinearLayout mainLayout;
+    private Button prevButton;
+    private Button button;
+    private LayoutInflater layoutInflater;
+    private View mView;
+
+    private Handler handler;
+
+    private int layoutID[] = {
+            R.layout.liner_activity_main1,
+            R.layout.activity_simple_layout,
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.liner_activity_main);
+
+        mainLayout = (LinearLayout)findViewById(R.id.main_layout);
+        layoutInflater = LayoutInflater.from(this);
+
+        button = (Button) findViewById(R.id.nextPage);
+        prevButton = (Button) findViewById(R.id.prevPage);
+
+        handler = new MyHandler();
+
+        button.setOnClickListener(new myClickListener());
+        prevButton.setOnClickListener(new myClickListener());
+    }
+    class myClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            Message msg = handler.obtainMessage();
+            msg.what = NEX_PAGE;
+            switch (v.getId()) {
+                case R.id.prevPage:
+                    msg.arg1 = 0;
+                    break;
+                case R.id.nextPage:
+                    msg.arg1 = 1;
+                    break;
+            }
+            handler.sendMessage(msg);
+        }
     }
 
+    class MyHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case NEX_PAGE: {
+                    mainLayout.removeAllViews();
+                    mView = layoutInflater.inflate(layoutID[msg.arg1], null);
+                    mainLayout.addView(mView);
+                    break;
+                }
+            }
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
