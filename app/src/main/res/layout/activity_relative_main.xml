@@ -1,0 +1,119 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/firstView"
+        android:background="#ff0000"
+        android:textSize="50sp"
+        android:text="@string/hello_world" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/sencodView"
+        android:text="adb"
+        android:background="#0000ff"
+        android:layout_toRightOf="@+id/firstView"
+        android:layout_alignBaseline="@+id/firstView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:background="#ffff00">
+        <TextView
+              android:id="@+id/thirdView"
+              android:text="align to parent right and bottom"
+              android:background="#ff00ff"
+              android:layout_alignParentRight="true"
+              android:layout_alignParentBottom="true"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+         />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="160dp"
+        android:background="#ff0000">
+        <TextView
+            android:id="@+id/forthView"
+            android:text="center in parent"
+            android:background="#ff00ff"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="270dp"
+        android:padding="15dp"
+        android:background="#ffff99">
+        <TextView
+            android:id="@+id/fifthView"
+            android:text="align parent end"
+            android:background="#ff00ff"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/sixthView"
+            android:text="align end"
+            android:background="#ff00ff"
+            android:layout_below="@+id/fifthView"
+            android:layout_alignEnd="@+id/fifthView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/lableView"
+            android:text="登录界面"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/sixthView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
+        <EditText
+            android:id="@+id/usernameText"
+            android:layout_below="@+id/lableView"
+            android:hint="username"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/passwdText"
+            android:layout_below="@+id/usernameText"
+            android:hint="password"
+            android:inputType="textPassword"
+            android:layout_alignLeft="@+id/usernameText"
+            android:layout_alignRight="@+id/usernameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:text="取消"
+            android:layout_below="@+id/passwdText"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/okButton"
+            android:text="确认"
+            android:layout_alignBottom="@id/cancelButton"
+            android:layout_toLeftOf="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</RelativeLayout>

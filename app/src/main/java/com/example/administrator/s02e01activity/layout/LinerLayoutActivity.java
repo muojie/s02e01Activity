@@ -30,8 +30,10 @@ public class LinerLayoutActivity extends ActionBarActivity {
 
     private Handler handler;
 
+    private int pageNumber = 0;
     private int layoutID[] = {
             R.layout.liner_activity_main1,
+            R.layout.activity_relative_main,
             R.layout.activity_simple_layout,
     };
 
@@ -54,16 +56,23 @@ public class LinerLayoutActivity extends ActionBarActivity {
     class myClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            Message msg = handler.obtainMessage();
-            msg.what = NEX_PAGE;
+            int pageCount = layoutID.length;
             switch (v.getId()) {
                 case R.id.prevPage:
-                    msg.arg1 = 0;
+                    if(pageNumber>0)
+                        pageNumber -= 1;
                     break;
                 case R.id.nextPage:
-                    msg.arg1 = 1;
+                    pageNumber += 1;
+                    if(pageNumber >= pageCount)
+                        pageNumber = 0;
                     break;
             }
+
+            Message msg = handler.obtainMessage();
+            msg.what = NEX_PAGE;
+            msg.arg1 = pageNumber;
+
             handler.sendMessage(msg);
         }
     }
