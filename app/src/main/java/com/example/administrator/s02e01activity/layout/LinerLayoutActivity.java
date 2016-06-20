@@ -70,7 +70,7 @@ public class LinerLayoutActivity extends ActionBarActivity {
                     if(pageNumber >= pageCount) {
                         pageNumber = 0;
                         Intent intent = new Intent();
-                        intent.setClass(LinerLayoutActivity.this, TitleViewActivity.class);
+                        intent.setClass(LinerLayoutActivity.this, MyListViewActivity.class);
                         startActivity(intent);
                     }
                     break;
