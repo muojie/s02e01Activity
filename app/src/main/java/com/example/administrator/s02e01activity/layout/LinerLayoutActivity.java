@@ -1,5 +1,6 @@
 package com.example.administrator.s02e01activity.layout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.example.administrator.s02e01activity.OtherActivity;
 import com.example.administrator.s02e01activity.R;
 
 /**
@@ -35,6 +37,7 @@ public class LinerLayoutActivity extends ActionBarActivity {
             R.layout.liner_activity_main1,
             R.layout.activity_relative_main,
             R.layout.activity_simple_layout,
+            R.layout.activity_counts_view,
     };
 
     @Override
@@ -64,8 +67,12 @@ public class LinerLayoutActivity extends ActionBarActivity {
                     break;
                 case R.id.nextPage:
                     pageNumber += 1;
-                    if(pageNumber >= pageCount)
+                    if(pageNumber >= pageCount) {
                         pageNumber = 0;
+                        Intent intent = new Intent();
+                        intent.setClass(LinerLayoutActivity.this, TitleViewActivity.class);
+                        startActivity(intent);
+                    }
                     break;
             }
 
