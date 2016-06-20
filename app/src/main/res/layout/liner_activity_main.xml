@@ -77,11 +77,13 @@
             android:id="@+id/prevPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/back_bg"
             android:text="prev page"/>
         <Button
             android:id="@+id/nextPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/foward_bg"
             android:text="next page"/>
     </LinearLayout>
 </LinearLayout>
