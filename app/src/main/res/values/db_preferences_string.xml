@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="db_hello">Hello World, SpActivity!</string>
+<string name="db_app_name">软件配置参数</string>
+<string name="db_name">姓名</string>
+<string name="db_age">年龄</string>
+<string name="db_button">保存设置</string>
+<string name="db_showButton">显示</string>
+</resources>
