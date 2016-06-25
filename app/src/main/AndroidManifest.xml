@@ -34,7 +34,7 @@
         <activity android:name=".layout.MyListViewActivity" />
 
         <service
-            android:name=".MyService"
+            android:name=".LocalService"
             android:enabled="true"
             android:exported="true" />
         <service

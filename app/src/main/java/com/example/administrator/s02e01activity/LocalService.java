@@ -10,7 +10,7 @@ import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
-public class MyService extends Service {
+public class LocalService extends Service {
 
     private NotificationManager mNM;
 
@@ -24,8 +24,8 @@ public class MyService extends Service {
      * IPC.
      */
     public class LocalBinder extends Binder {
-        MyService getService() {
-            return MyService.this;
+        LocalService getService() {
+            return LocalService.this;
         }
     }
 
@@ -54,7 +54,7 @@ public class MyService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        return mBinder;
+        return mBinder;                                                                             // return LocalBinder
     }
 
     // This is the object that receives interactions from clients.  See

@@ -67,7 +67,7 @@ public class MessengerServiceActivities {
                 // interact with the service.  We are communicating with our
                 // service through an IDL interface, so get a client-side
                 // representation of that from the raw service object.
-                mService = new Messenger(service);
+                mService = new Messenger(service);                                                  //Messenger. 叫MessengerService的原因
                 mCallbackText.setText("Attached.");
 
                 // We want to monitor the service for as long as we are

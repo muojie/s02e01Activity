@@ -44,7 +44,7 @@ public class LocalServiceActivity {
                 // the service explicitly specifies our service component, because
                 // we want it running in our own process and don't want other
                 // applications to replace it.
-                startService(new Intent(Controller.this, MyService.class));
+                startService(new Intent(Controller.this, LocalService.class));
             }
         };
 
@@ -53,7 +53,7 @@ public class LocalServiceActivity {
                 // Cancel a previous call to startService().  Note that the
                 // service will not actually stop at this point if there are
                 // still bound clients.
-                stopService(new Intent(Controller.this, MyService.class));
+                stopService(new Intent(Controller.this, LocalService.class));
             }
         };
     }
@@ -73,7 +73,7 @@ public class LocalServiceActivity {
         private boolean mIsBound;
 
 
-        private MyService mBoundService;
+        private LocalService mBoundService;
 
         private ServiceConnection mConnection = new ServiceConnection() {
             public void onServiceConnected(ComponentName className, IBinder service) {
@@ -82,7 +82,7 @@ public class LocalServiceActivity {
                 // interact with the service.  Because we have bound to a explicit
                 // service that we know is running in our own process, we can
                 // cast its IBinder to a concrete class and directly access it.
-                mBoundService = ((MyService.LocalBinder)service).getService();
+                mBoundService = ((LocalService.LocalBinder)service).getService();
 
                 // Tell the user about this for our demo.
                 Toast.makeText(Binding.this, R.string.local_service_connected,
@@ -106,7 +106,7 @@ public class LocalServiceActivity {
             // we know will be running in our own process (and thus won't be
             // supporting component replacement by other applications).
             bindService(new Intent(Binding.this,
-                    MyService.class), mConnection, Context.BIND_AUTO_CREATE);
+                    LocalService.class), mConnection, Context.BIND_AUTO_CREATE);
             mIsBound = true;
         }
 

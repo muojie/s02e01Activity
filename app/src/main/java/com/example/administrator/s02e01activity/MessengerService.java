@@ -16,8 +16,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MessengerService extends Service {
-    public MessengerService() {
-    }
 
     /** For showing and hiding our notification. */
     NotificationManager mNM;
@@ -108,7 +106,7 @@ public class MessengerService extends Service {
      */
     @Override
     public IBinder onBind(Intent intent) {
-        return mMessenger.getBinder();
+        return mMessenger.getBinder();                                                              //return mMessenger
     }
 
     /**
