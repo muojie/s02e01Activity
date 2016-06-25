@@ -5,10 +5,9 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
-
     defaultConfig {
         applicationId "com.example.administrator.s02e01activity"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -34,18 +33,14 @@ android {
         workingDir file('src/main')
         commandLine getNdkBuildCmd()
     }
-
     tasks.withType(JavaCompile) {
         compileTask -> compileTask.dependsOn ndkBuild
     }
-
     task cleanNative(type: Exec) {
         workingDir file('src/main')
         commandLine getNdkBuildCmd(), 'clean'
     }
-
     clean.dependsOn cleanNative
-
     /* configure in Application.mk
     productFlavors {
         arm {
@@ -55,7 +50,8 @@ android {
         }
     }
     */
-
+    productFlavors {
+    }
 }
 
 dependencies {

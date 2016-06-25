@@ -10,4 +10,27 @@
     <string name="title_activity_title_view">TitleViewActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="remote_service_started">remote service started</string>
+    <string name="remote_service_stopped">remote service stopped</string>
+
+    <string name="remote_service_connected">remote service connected</string>
+    <string name="remote_service_disconnected">remote service disconnected</string>
+    <string name="messenger_service_binding">messenger service binding</string>
+
+    <string name="local_service_label">local service label</string>
+
+    <string name="local_service_started">local service started</string>
+    <string name="local_service_stopped">local service stopped</string>
+    <string name="local_service_connected">local service connected</string>
+    <string name="local_service_disconnected">local service disconnected</string>
+
+    <string name="local_service_binding">local service binding</string>
+
+    <string name="bind_service">bind service</string>
+    <string name="unbind_service">unbind service</string>
+
+    <string name="start_service">start service</string>
+    <string name="stop_service">stop service</string>
+    <string name="local_service_controller">local service controller</string>
 </resources>

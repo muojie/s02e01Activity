@@ -31,7 +31,20 @@
         <activity
             android:name=".layout.LinerLayoutActivity"
             android:label="layout test" />
-        <activity android:name=".layout.MyListViewActivity"></activity>
+        <activity android:name=".layout.MyListViewActivity" />
+
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".MessengerService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".LocalServiceActivity$Controller" />
+        <activity android:name=".LocalServiceActivity$Binding" />
+        <activity android:name=".MessengerServiceActivities$Binding"></activity>
     </application>
 
 </manifest>

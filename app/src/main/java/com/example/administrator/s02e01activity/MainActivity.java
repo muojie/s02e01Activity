@@ -2,6 +2,7 @@ package com.example.administrator.s02e01activity;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.app.Notification;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -26,6 +27,8 @@ public class MainActivity extends ActionBarActivity {
 
     private Button dbButton;
     private Button layoutButton;
+    private Button serviceButton;
+    private Button messengerButton;
 
     View layoutMain = null;
     View layout4 = null;
@@ -61,6 +64,12 @@ public class MainActivity extends ActionBarActivity {
 
         layoutButton = (Button)findViewById(R.id.layoutButton);
         layoutButton.setOnClickListener(buttonListener);
+
+        serviceButton = (Button)findViewById(R.id.serviceButton);
+        serviceButton.setOnClickListener(buttonListener);
+
+        messengerButton = (Button)findViewById(R.id.messengerButton);
+        messengerButton.setOnClickListener(buttonListener);
     }
 
     @Override
@@ -170,6 +179,16 @@ public class MainActivity extends ActionBarActivity {
                 case R.id.layoutButton: {
                     Intent intent = new Intent();
                     intent.setClass(MainActivity.this, LinerLayoutActivity.class);
+                    startActivity(intent);
+                }
+                case R.id.serviceButton: {
+                    Intent intent = new Intent();
+                    intent.setClass(MainActivity.this, LocalServiceActivity.Controller.class);
+                    startActivity(intent);
+                }
+                case R.id.messengerButton: {
+                    Intent intent = new Intent();
+                    intent.setClass(MainActivity.this, MessengerServiceActivities.Binding.class);
                     startActivity(intent);
                 }
             }

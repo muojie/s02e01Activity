@@ -57,10 +57,23 @@
         android:layout_below="@+id/dbButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/serviceButton"
+        android:text="service test"
+        android:layout_below="@+id/layoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/messengerButton"
+        android:text="Messenger Service Test"
+        android:layout_below="@+id/serviceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <FrameLayout
         android:id="@+id/frame1"
-        android:layout_below="@id/textView2"
+        android:layout_below="@id/messengerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></FrameLayout>
 </RelativeLayout>
